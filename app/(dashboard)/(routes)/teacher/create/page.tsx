@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/form";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
 	title: z.string().min(1, {
@@ -26,6 +27,7 @@ const formSchema = z.object({
 });
 
 const CreatePage = () => {
+	const router = useRouter();
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -33,8 +35,13 @@ const CreatePage = () => {
 		},
 	});
 
-	const onSubmit = (values: z.infer<typeof formSchema>) => {
-		console.log({ values });
+	const onSubmit = async (values: z.infer<typeof formSchema>) => {
+		try {
+			const response = await axios.post("/api/course", values);
+			router.push(`/feature/courses/${response.data.id}`);
+		} catch (error) {
+			toast.error("Something went wrong!");
+		}
 	};
 
 	const { isSubmitting, isValid } = form.formState;
