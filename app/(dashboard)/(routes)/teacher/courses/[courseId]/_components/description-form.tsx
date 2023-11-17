@@ -12,7 +12,7 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import { Pencil } from "lucide-react";
+import { Pencil, PlusCircle } from "lucide-react";
 import { Fragment, useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -66,10 +66,15 @@ const DescriptionForm = ({ initialData, courseId }: DescriptionFormProps) => {
 				<Button onClick={toggleEdit} variant="ghost">
 					{isEditing ? (
 						<Fragment>Cancel</Fragment>
-					) : (
+					) : initialData.description ? (
 						<Fragment>
 							<Pencil className="h-4 w-4 mr-2" />
 							Edit description
+						</Fragment>
+					) : (
+						<Fragment>
+							<PlusCircle className="h-4 w-4 mr-2" />
+							Add description
 						</Fragment>
 					)}
 				</Button>
