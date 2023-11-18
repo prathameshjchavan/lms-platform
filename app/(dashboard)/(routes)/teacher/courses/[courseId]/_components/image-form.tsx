@@ -15,15 +15,19 @@ interface ImageFormProps {
 		imageUrl: string | null;
 	};
 	courseId: string;
+	userId: string;
 }
 
 const formSchema = z.object({
 	imageUrl: z.string().min(1, {
-		message: "Description is required",
+		message: "Image URL is required",
+	}),
+	imageKey: z.string().min(1, {
+		message: "Image Key is required",
 	}),
 });
 
-const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
+const ImageForm = ({ initialData, courseId, userId }: ImageFormProps) => {
 	const [isEditing, setIsEditing] = useState<boolean>(false);
 	const router = useRouter();
 
@@ -40,6 +44,15 @@ const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
 		} catch (error) {
 			toast.error("Something went wrong!");
 		}
+	};
+
+	const deleteExistingCourseImage = async (
+		userId: string,
+		courseId: string
+	) => {
+		const response = await axios.delete("/api/uploadthing", {
+			data: { userId, courseId },
+		});
 	};
 
 	return (
@@ -67,8 +80,14 @@ const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
 				<div>
 					<FileUpload
 						endpoint="courseImage"
-						onChange={(url) => {
-							if (url) onSubmit({ imageUrl: url });
+						onChange={async (url, key) => {
+							if (!url || !key) return;
+
+							if (initialData.imageUrl) {
+								await deleteExistingCourseImage(userId, courseId);
+							}
+
+							onSubmit({ imageUrl: url, imageKey: key });
 						}}
 					/>
 					<div className="text-xs text-muted-foreground mt-4">
