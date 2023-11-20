@@ -8,7 +8,7 @@ export async function POST(
 ) {
 	try {
 		const { userId } = auth();
-		const { url, key } = await req.json();
+		const { url, key, name } = await req.json();
 
 		if (!userId) return new NextResponse("Unauthorized", { status: 401 });
 
@@ -22,7 +22,7 @@ export async function POST(
 			data: {
 				url,
 				key,
-				name: url.split("/").pop(),
+				name,
 				courseId: params.courseId,
 			},
 		});

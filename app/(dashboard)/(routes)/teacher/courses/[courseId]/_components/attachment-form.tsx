@@ -25,6 +25,9 @@ const formSchema = z.object({
 	key: z.string().min(1, {
 		message: "Attachment Key is required",
 	}),
+	name: z.string().min(1, {
+		message: "Attachment Name is required",
+	}),
 });
 
 const AttachmentForm = ({
@@ -84,10 +87,10 @@ const AttachmentForm = ({
 				<div>
 					<FileUpload
 						endpoint="courseAttachments"
-						onChange={async (url, key) => {
-							if (!url || !key) return;
+						onChange={async ({ url, key, name }) => {
+							if (!url || !key || !name) return;
 
-							onSubmit({ url, key });
+							onSubmit({ url, key, name });
 						}}
 					/>
 					<div className="text-xs text-muted-foreground mt-4">
@@ -110,9 +113,7 @@ const AttachmentForm = ({
 									<File className="h-4 w-4 mr-2 flex-shrink-0" />
 									<p className="text-xs line-clamp-1">{attachment.name}</p>
 									{deletingId === attachment.id ? (
-										<div>
-											<Loader2 className="h-4 w-4 ml-auto animate-spin" />
-										</div>
+										<Loader2 className="h-4 w-4 ml-auto animate-spin" />
 									) : (
 										<button
 											onClick={() => onDelete(attachment.id)}
