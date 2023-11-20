@@ -111,7 +111,7 @@ const AttachmentForm = ({
 									<p className="text-xs line-clamp-1">{attachment.name}</p>
 									{deletingId === attachment.id ? (
 										<div>
-											<Loader2 className="h-4 w-4 animate-spin" />
+											<Loader2 className="h-4 w-4 ml-auto animate-spin" />
 										</div>
 									) : (
 										<button
