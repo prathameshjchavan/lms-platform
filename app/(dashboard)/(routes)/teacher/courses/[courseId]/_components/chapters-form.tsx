@@ -61,6 +61,24 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
 		}
 	};
 
+	const onReorder = async (updatedData: { id: string; position: number }[]) => {
+		try {
+			setIsUpdating(true);
+
+			await axios.put(`/api/courses/${courseId}/chapters/reorder`, {
+				list: updatedData,
+			});
+
+			toast.success("Chapters reordered");
+
+			router.refresh();
+		} catch (error) {
+			toast.error("Something went wrong");
+		} finally {
+			setIsUpdating(false);
+		}
+	};
+
 	return (
 		<div className="mt-6 border bg-slate-100 rounded-md p-4">
 			<div className="font-medium flex items-center justify-between">
@@ -117,7 +135,7 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
 						) : (
 							<ChaptersList
 								onEdit={() => {}}
-								onReorder={() => {}}
+								onReorder={onReorder}
 								items={initialData.chapters || []}
 							/>
 						)}
