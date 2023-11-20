@@ -14,6 +14,7 @@ import ImageForm from "./_components/image-form";
 import CategoryForm from "./_components/category-form";
 import PriceForm from "./_components/price-form";
 import AttachmentForm from "./_components/attachment-form";
+import ChaptersForm from "./_components/chapters-form";
 
 interface Props {
 	params: { courseId: string };
@@ -30,6 +31,11 @@ const CoursePage = async ({ params: { courseId } }: Props) => {
 			attachments: {
 				orderBy: {
 					createdAt: "desc",
+				},
+			},
+			chapters: {
+				orderBy: {
+					position: "asc",
 				},
 			},
 		},
@@ -49,6 +55,7 @@ const CoursePage = async ({ params: { courseId } }: Props) => {
 		course.imageUrl,
 		course.price,
 		course.categoryId,
+		course.chapters.some((chapter) => chapter.isPublished),
 	];
 
 	const totalFields = requiredFields.length;
@@ -94,7 +101,7 @@ const CoursePage = async ({ params: { courseId } }: Props) => {
 							<IconBadge icon={ListChecks} />
 							<h2 className="text-xl">Course chapters</h2>
 						</div>
-						<div>TODO: Chapters</div>
+						<ChaptersForm initialData={course} courseId={course.id} />
 					</div>
 					<div>
 						<div className="flex items-center gap-x-2">
