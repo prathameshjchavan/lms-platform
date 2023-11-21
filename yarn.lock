@@ -961,12 +961,12 @@
   resolved "https://registry.yarnpkg.com/@uploadthing/mime-types/-/mime-types-0.2.2.tgz#94ec59c61729f6bef5662d8b222831e8afd59369"
   integrity sha512-ZUo1JHOPPMZDsUw1mOhhVDIvJGlsjj6T0xJ/YJtulyJwL43S9B5pxg1cHcRuTEgjaxj7B55jiqQ6r9mDrrjH9A==
 
-"@uploadthing/react@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@uploadthing/react/-/react-6.0.0.tgz#53bf28577b7288ebf0e40851e917d6c66350a8b4"
-  integrity sha512-s+6crwgoXRY9opip7S3g6iV1dIR2uMedXjlfQfMRM6GkVUmwHp8hkjtutpcnsdm37SukjubWuaAlqbUAmxYB5g==
+"@uploadthing/react@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@uploadthing/react/-/react-6.0.1.tgz#433870690a2df2df60083a4baa14bfc8696d6b03"
+  integrity sha512-IJHAdEYV66QXvd3/GMQaWr7ZJncZAVWvBhxg9UhE/b3qn651aJWnHBPgo2Q7W9R4t3ITua+/5cN7n0EpP00dhg==
   dependencies:
-    "@uploadthing/shared" "^6.0.0"
+    "@uploadthing/shared" "^6.0.1"
     attr-accept "^2.2.2"
     file-selector "^0.6.0"
     tailwind-merge "^1.13.2"
@@ -975,6 +975,11 @@
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@uploadthing/shared/-/shared-6.0.0.tgz#1ed565748c05b2b73c2cdfff6cc9e80465474d46"
   integrity sha512-1utPnQxluUxShO095IGOeU3NT0nERVSlY97R8c0dcIoDc689CRX7BFrBws58PuWuAhmPp2Mjyo1e9wn3rSBjgg==
+
+"@uploadthing/shared@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@uploadthing/shared/-/shared-6.0.1.tgz#e9dbc6ddfb9a8a4700984530e8fad6fefc933996"
+  integrity sha512-ZdeTj77MU1zi5mhLzlYa5jUCUxXJqK4+sd9lgZZ6pIWN9tK5Xs0MptF3orqZH/RzIir6aqpsI9OaSd/BamHDxQ==
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
