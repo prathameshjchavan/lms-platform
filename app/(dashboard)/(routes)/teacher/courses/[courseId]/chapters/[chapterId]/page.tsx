@@ -21,9 +21,6 @@ const ChapterIdPage = async ({ params }: ChapterIdProps) => {
 
 	const chapter = await db.chapter.findUnique({
 		where: { id: params.chapterId, courseId: params.courseId },
-		include: {
-			muxData: true,
-		},
 	});
 
 	if (!chapter) return redirect("/");

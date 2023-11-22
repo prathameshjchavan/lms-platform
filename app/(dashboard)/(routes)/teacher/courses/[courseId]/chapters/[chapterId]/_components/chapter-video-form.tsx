@@ -8,13 +8,11 @@ import { Fragment, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import FileUpload from "@/components/file-upload";
-import { Chapter, MuxData } from "@prisma/client";
+import { Chapter } from "@prisma/client";
 import dynamic from "next/dynamic";
 
 interface ChapterVideoFormProps {
-	initialData: Chapter & {
-		muxData?: MuxData | null;
-	};
+	initialData: Chapter;
 	courseId: string;
 	chapterId: string;
 }
