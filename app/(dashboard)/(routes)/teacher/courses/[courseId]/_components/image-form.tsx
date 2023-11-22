@@ -51,7 +51,7 @@ const ImageForm = ({ initialData, courseId, userId }: ImageFormProps) => {
 		courseId: string
 	) => {
 		const response = await axios.delete("/api/uploadthing", {
-			data: { userId, courseId },
+			data: { userId, courseId, file: "courseImage" },
 		});
 	};
 
@@ -80,7 +80,7 @@ const ImageForm = ({ initialData, courseId, userId }: ImageFormProps) => {
 				<div>
 					<FileUpload
 						endpoint="courseImage"
-						onChange={async (url, key) => {
+						onChange={async ({ url, key }) => {
 							if (!url || !key) return;
 
 							if (initialData.imageUrl) {
