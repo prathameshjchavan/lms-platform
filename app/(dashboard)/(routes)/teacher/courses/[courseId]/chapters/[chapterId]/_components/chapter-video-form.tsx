@@ -15,7 +15,6 @@ interface ChapterVideoFormProps {
 	initialData: Chapter;
 	courseId: string;
 	chapterId: string;
-	userId: string;
 }
 
 const formSchema = z.object({
@@ -27,7 +26,6 @@ const ChapterVideoForm = ({
 	initialData,
 	courseId,
 	chapterId,
-	userId,
 }: ChapterVideoFormProps) => {
 	const [isEditing, setIsEditing] = useState<boolean>(false);
 	const router = useRouter();
@@ -59,7 +57,7 @@ const ChapterVideoForm = ({
 		chapterId: string
 	) => {
 		const response = await axios.delete("/api/uploadthing", {
-			data: { userId, courseId, chapterId, file: "chapterVideo" },
+			data: { courseId, chapterId, file: "chapterVideo" },
 		});
 	};
 

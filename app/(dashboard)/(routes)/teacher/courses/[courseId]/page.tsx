@@ -81,11 +81,7 @@ const CoursePage = async ({ params: { courseId } }: Props) => {
 					</div>
 					<TitleForm initialData={course} courseId={course.id} />
 					<DescriptionForm initialData={course} courseId={course.id} />
-					<ImageForm
-						initialData={course}
-						courseId={course.id}
-						userId={userId}
-					/>
+					<ImageForm initialData={course} courseId={course.id} />
 					<CategoryForm
 						initialData={course}
 						courseId={course.id}

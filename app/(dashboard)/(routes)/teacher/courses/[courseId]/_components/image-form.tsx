@@ -15,7 +15,6 @@ interface ImageFormProps {
 		imageUrl: string | null;
 	};
 	courseId: string;
-	userId: string;
 }
 
 const formSchema = z.object({
@@ -27,7 +26,7 @@ const formSchema = z.object({
 	}),
 });
 
-const ImageForm = ({ initialData, courseId, userId }: ImageFormProps) => {
+const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
 	const [isEditing, setIsEditing] = useState<boolean>(false);
 	const router = useRouter();
 
@@ -46,12 +45,9 @@ const ImageForm = ({ initialData, courseId, userId }: ImageFormProps) => {
 		}
 	};
 
-	const deleteExistingCourseImage = async (
-		userId: string,
-		courseId: string
-	) => {
+	const deleteExistingCourseImage = async (courseId: string) => {
 		const response = await axios.delete("/api/uploadthing", {
-			data: { userId, courseId, file: "courseImage" },
+			data: { courseId, file: "courseImage" },
 		});
 	};
 
@@ -84,7 +80,7 @@ const ImageForm = ({ initialData, courseId, userId }: ImageFormProps) => {
 							if (!url || !key) return;
 
 							if (initialData.imageUrl) {
-								await deleteExistingCourseImage(userId, courseId);
+								await deleteExistingCourseImage(courseId);
 							}
 
 							onSubmit({ imageUrl: url, imageKey: key });
