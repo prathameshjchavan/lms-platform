@@ -3,12 +3,13 @@
 import * as z from "zod";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
-import { ImageIcon, Pencil, PlusCircle, Video } from "lucide-react";
-import { Fragment, useState } from "react";
+import { Pencil, PlusCircle, Video } from "lucide-react";
+import { Fragment, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import FileUpload from "@/components/file-upload";
 import { Chapter, MuxData } from "@prisma/client";
+import dynamic from "next/dynamic";
 
 interface ChapterVideoFormProps {
 	initialData: Chapter & {
@@ -29,6 +30,10 @@ const ChapterVideoForm = ({
 }: ChapterVideoFormProps) => {
 	const [isEditing, setIsEditing] = useState<boolean>(false);
 	const router = useRouter();
+	const ReactPlayer = useMemo(
+		() => dynamic(() => import("react-player"), { ssr: false }),
+		[]
+	);
 
 	const toggleEdit = () => setIsEditing((current) => !current);
 
@@ -84,7 +89,15 @@ const ChapterVideoForm = ({
 					</div>
 				</div>
 			) : initialData.videoUrl ? (
-				<div className="relative aspect-video mt-2">Video uploaded!</div>
+				<div className="relative aspect-video mt-2">
+					<ReactPlayer
+						url={initialData.videoUrl || ""}
+						playing
+						controls
+						width="100%"
+						height="100%"
+					/>
+				</div>
 			) : (
 				<div className="flex items-center justify-center h-60 bg-slate-200 rounded-md">
 					<Video className="h-10 w-10 text-slate-500" />

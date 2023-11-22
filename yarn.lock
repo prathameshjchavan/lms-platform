@@ -224,38 +224,38 @@
     esdoc-ecmascript-proposal-plugin "^1.0.0"
     jsonwebtoken "^9.0.0"
 
-"@mux/mux-player-react@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-2.2.0.tgz#1f61701c3b570accf52c36a1e91b96ede1eb59c1"
-  integrity sha512-oPkYj4a8ls/3S4nqPmpIxu7hh99mDglOnClnsetZEaVOQd5aomFExRHoDapWOeuIwTPBtz16xaIbUe+k1B1HqA==
+"@mux/mux-player-react@1.14.2":
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-1.14.2.tgz#f1924141afa0682ab642bb5cc67e456b6fc3fc6f"
+  integrity sha512-Q6TkKo+L52RxBWDalewXq9RlVXmvbMLEL3KlVUlH7vHYB0AcMfdI5VqAhqHdmNvj6S1vqg5T9cXtHgbyx6UiDg==
   dependencies:
-    "@mux/mux-player" "2.2.0"
-    "@mux/playback-core" "0.21.0"
+    "@mux/mux-player" "1.14.2"
+    "@mux/playback-core" "0.20.1"
     prop-types "^15.7.2"
 
-"@mux/mux-player@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-2.2.0.tgz#6dffc1cce886fcc8f39d3b0c6789e56398d72d6e"
-  integrity sha512-Pju18K+z28ZJFXQevD0jU5SNaJjS6fluPAplhYDVqQ5U2FevZ8ig2PfFxbFqjQyVk1SJNwgKUNMFgfKVrnONsg==
+"@mux/mux-player@1.14.2":
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-1.14.2.tgz#786088478a593623ef67a2d29e5e873c7ecd11ea"
+  integrity sha512-7K8DyFd+GIfeLql183RxY/ii+V5DOq4svsWlhgEUJ/6c4FKm530C2tXpKJ/FdynF3GApK48bvpaXLnj7+Iyt/w==
   dependencies:
-    "@mux/mux-video" "0.17.0"
-    "@mux/playback-core" "0.21.0"
-    media-chrome "^1.5.0"
+    "@mux/mux-video" "0.16.4"
+    "@mux/playback-core" "0.20.1"
+    media-chrome "^1.4.2"
 
-"@mux/mux-video@0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@mux/mux-video/-/mux-video-0.17.0.tgz#236324c5a8825e6851d11029c7fcf3a1b8113006"
-  integrity sha512-cTi0N/aQtQ4KRvd/DLkaTsmOrCSLnfvvzfW7MNF2AIXeuuGTCkAv7wfV5RjY0VUgl3Y8NcJxMu6eCS0FRkvMyw==
+"@mux/mux-video@0.16.4":
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/@mux/mux-video/-/mux-video-0.16.4.tgz#497451b84d5acf4d5d452ef18df0857a7c2ff20e"
+  integrity sha512-vACXwmQWZxXZ0vb4a4FICZnns3tD/Jr16iD5mjfDwWtj8cxgav/ibeyDZICkrU7HSDhwZQcZYMf+TteHJQ86xg==
   dependencies:
-    "@mux/playback-core" "0.21.0"
+    "@mux/playback-core" "0.20.1"
     castable-video "0.5.2"
     custom-media-element "0.2.0"
     media-tracks ">=0.2.3"
 
-"@mux/playback-core@0.21.0":
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/@mux/playback-core/-/playback-core-0.21.0.tgz#946b2c92aeeec889975d47557d2b6f72bc63320d"
-  integrity sha512-AoswERCtLxW5fP2rkafMYjCYciBRi2TsIT48AuKvCQu4+LQ3xQEZX28MwqCNEx0VCU9yK+bSr5ngu7YBUN9HVQ==
+"@mux/playback-core@0.20.1":
+  version "0.20.1"
+  resolved "https://registry.yarnpkg.com/@mux/playback-core/-/playback-core-0.20.1.tgz#f868d20d90c83dd95aec0b0c05df59cd4402422f"
+  integrity sha512-UOw0cKY9o5/bAOUQjEYaS6QN9/fp5qQQWTQhI/oE4xU7C82Cb2PIe7IYAic0aWOaGsW/KUjW/YkwMbBQuonR5w==
   dependencies:
     hls.js "^1.4.10"
     media-tracks "0.2.3"
@@ -1503,6 +1503,11 @@ deepmerge@4.2.2:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
   integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
 
+deepmerge@^4.0.0:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.3.1.tgz#44b5f2147cd3b00d4b56137685966f26fd25dd4a"
+  integrity sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==
+
 define-data-property@^1.0.1, define-data-property@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/define-data-property/-/define-data-property-1.1.1.tgz#c35f7cd0ab09883480d12ac5cb213715587800b3"
@@ -2624,6 +2629,11 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+  integrity sha512-kPEjMFtZvwL9TaZo0uZ2ml+Ye9HUMmPwbYRJ324qF9tqMejwykJ5ggTyvzmrbBeapCAbk98BSbTeovHEEP1uCA==
+
 locate-path@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-6.0.0.tgz#55321eb309febbc59c4801d931a72452a681d286"
@@ -2707,7 +2717,7 @@ map-obj@^4.0.0, map-obj@^4.1.0:
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-4.3.0.tgz#9304f906e93faae70880da102a9f1df0ea8bb05a"
   integrity sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==
 
-media-chrome@^1.5.0:
+media-chrome@^1.4.2:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/media-chrome/-/media-chrome-1.5.3.tgz#9ce238d68d055bed39a019e65a5e331a417cb2f9"
   integrity sha512-XiE29yNa9jyCMdshDLvSgXb0e/RJauMaTXT9kL9dTJmmZXz0RK+Ol/TsE2z4uO68x+rqZauoGEANUbDEyN8NLg==
@@ -2721,6 +2731,11 @@ media-tracks@>=0.2.3:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/media-tracks/-/media-tracks-0.2.4.tgz#aee3bd69bdc8f246b44af5245f7b0a68d4c94540"
   integrity sha512-P/TbDCYTFH5gxpQ6r99iabXOwjsFwzKRgK7wiwo64Ii6nHXYhHtwEP7A7ufmEKxkNCoHc4j3Z2hvs+lXL4wPeQ==
+
+memoize-one@^5.1.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
+  integrity sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==
 
 memoize-one@^6.0.0:
   version "6.0.0"
@@ -3176,6 +3191,11 @@ react-dropzone@^14.2.3:
     file-selector "^0.6.0"
     prop-types "^15.8.1"
 
+react-fast-compare@^3.0.1:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.2.tgz#929a97a532304ce9fee4bcae44234f1ce2c21d49"
+  integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
+
 react-hook-form@^7.48.2:
   version "7.48.2"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.48.2.tgz#01150354d2be61412ff56a030b62a119283b9935"
@@ -3197,6 +3217,17 @@ react-is@^18.0.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
+
+react-player@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/react-player/-/react-player-2.13.0.tgz#b6fb252bf70574608ac711f6c83d7057c8fb0c14"
+  integrity sha512-gkY7ZdbVFztlKFFhCPcnDrFQm+L399b8fhWsKatZ+b2wpKJwfUHBXQFMRxqYQGT0ic1/wQ7D7EZEWy7ZBqk2pw==
+  dependencies:
+    deepmerge "^4.0.0"
+    load-script "^1.0.0"
+    memoize-one "^5.1.1"
+    prop-types "^15.7.2"
+    react-fast-compare "^3.0.1"
 
 react-quill@^2.0.0:
   version "2.0.0"
