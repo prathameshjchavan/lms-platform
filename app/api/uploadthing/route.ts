@@ -4,6 +4,7 @@ import { ourFileRouter } from "./core";
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { UTApi } from "uploadthing/server";
+import { auth } from "@clerk/nextjs";
 
 const utapi = new UTApi({
 	fetch: globalThis.fetch,
@@ -16,9 +17,11 @@ export const { GET, POST } = createNextRouteHandler({
 
 export async function DELETE(req: Request) {
 	try {
-		const { userId, courseId, chapterId, file } = await req.json();
+		const { userId } = auth();
 
 		if (!userId) return new NextResponse("Unauthorized", { status: 401 });
+
+		const { courseId, chapterId, file } = await req.json();
 
 		if (file === "courseImage") {
 			const course = await db.course.findUnique({
