@@ -15,16 +15,19 @@ interface ChapterVideoFormProps {
 	initialData: Chapter;
 	courseId: string;
 	chapterId: string;
+	userId: string;
 }
 
 const formSchema = z.object({
 	videoUrl: z.string().min(1),
+	videoKey: z.string().min(1),
 });
 
 const ChapterVideoForm = ({
 	initialData,
 	courseId,
 	chapterId,
+	userId,
 }: ChapterVideoFormProps) => {
 	const [isEditing, setIsEditing] = useState<boolean>(false);
 	const router = useRouter();
@@ -49,6 +52,15 @@ const ChapterVideoForm = ({
 		} catch (error) {
 			toast.error("Something went wrong!");
 		}
+	};
+
+	const deleteExistingCourseVideo = async (
+		courseId: string,
+		chapterId: string
+	) => {
+		const response = await axios.delete("/api/uploadthing", {
+			data: { userId, courseId, chapterId, file: "chapterVideo" },
+		});
 	};
 
 	return (
@@ -76,10 +88,14 @@ const ChapterVideoForm = ({
 				<div>
 					<FileUpload
 						endpoint="chapterVideo"
-						onChange={({ url }) => {
-							if (url) {
-								onSubmit({ videoUrl: url });
+						onChange={async ({ url, key }) => {
+							if (!url || !key) return;
+
+							if (initialData.videoUrl) {
+								await deleteExistingCourseVideo(courseId, chapterId);
 							}
+
+							onSubmit({ videoUrl: url, videoKey: key });
 						}}
 					/>
 					<div className="text-xs text-muted-foreground mt-4">
