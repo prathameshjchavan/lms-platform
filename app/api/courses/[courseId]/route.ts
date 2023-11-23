@@ -1,6 +1,12 @@
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
+import { UTApi } from "uploadthing/server";
+
+const utapi = new UTApi({
+	fetch: globalThis.fetch,
+	apiKey: process.env.UPLOADTHING_SECRET,
+});
 
 export async function PATCH(
 	req: Request,
@@ -24,6 +30,50 @@ export async function PATCH(
 		return NextResponse.json(course);
 	} catch (error) {
 		console.log("[COURSE_ID]", error);
+		return new NextResponse("Internal Error", { status: 500 });
+	}
+}
+
+export async function DELETE(
+	req: Request,
+	{ params }: { params: { courseId: string } }
+) {
+	try {
+		const { userId } = auth();
+
+		if (!userId) return new NextResponse("Unauthorized", { status: 401 });
+
+		const course = await db.course.findUnique({
+			where: {
+				id: params.courseId,
+				userId,
+			},
+			include: {
+				chapters: true,
+			},
+		});
+
+		if (!course) return new NextResponse("Not found", { status: 404 });
+
+		for (const chapter of course.chapters) {
+			if (chapter.videoUrl && chapter.videoKey) {
+				await utapi.deleteFiles(chapter.videoKey);
+			}
+		}
+
+		if (course.imageUrl && course.imageKey) {
+			await utapi.deleteFiles(course.imageKey);
+		}
+
+		const deletedCourse = await db.course.delete({
+			where: {
+				id: params.courseId,
+			},
+		});
+
+		return NextResponse.json(deletedCourse);
+	} catch (error) {
+		console.log("[COURSE_ID_DELETE]", error);
 		return new NextResponse("Internal Error", { status: 500 });
 	}
 }
