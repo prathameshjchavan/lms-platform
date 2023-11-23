@@ -104,7 +104,6 @@ const ChapterVideoForm = ({
 				<div className="relative aspect-video mt-2">
 					<ReactPlayer
 						url={initialData.videoUrl || ""}
-						playing
 						controls
 						width="100%"
 						height="100%"
