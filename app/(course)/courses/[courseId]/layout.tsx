@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { PropsWithChildren } from "react";
+import CourseSidebar from "./_components/course-siderbar";
 
 interface CourseLayoutProps extends PropsWithChildren {
 	params: {
