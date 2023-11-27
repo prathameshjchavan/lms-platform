@@ -55,12 +55,7 @@ export const getChapter = async ({
 				where: {
 					courseId,
 					isPublished: true,
-					position: {
-						gt: chapter.position,
-					},
-				},
-				orderBy: {
-					position: "asc",
+					position: chapter.position + 1,
 				},
 			});
 		}
