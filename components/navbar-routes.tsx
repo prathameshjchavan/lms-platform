@@ -39,7 +39,7 @@ const NavbarRoutes = () => {
 						</Button>
 					</Link>
 				) : null}
-				<UserButton afterSignOutUrl="/" />
+				<UserButton afterSignOutUrl={`${process.env.NEXT_PUBLIC_APP_URL}/sign-in?redirect_url=https%3A%2F%2Flms-platform-lake.vercel.app%2F`} />
 			</div>
 		</Fragment>
 	);
